@@ -1,0 +1,5 @@
+{
+    "dmTarget": "@admin:localhost",
+    "homeserverUrl": "http://localhost:8008",
+    "accessToken": "changeme"
+}
