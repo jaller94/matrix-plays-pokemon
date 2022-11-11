@@ -3,7 +3,11 @@ services:
   bot:
     image: jaller94/matrix-plays-pokemon:latest
     volumes:
-      # If you want to change the source code.
-      #- ./src:/etc/data:ro
+      # The config folder should contain config.json
       - ./config:/app/config:ro
+      # The emulator-data folder where the Lua script should write screenshots to
       - ./emulator-data:/app/emulator-data:ro
+      # Crypto store for End to end encryption
+      - ./storage:storage
+      # For development: If you want to change the source code.
+      #- ./src:/etc/data:ro
