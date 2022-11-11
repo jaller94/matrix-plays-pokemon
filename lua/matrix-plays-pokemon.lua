@@ -510,7 +510,9 @@ function printPartyStatus(game, buffer)
 	if partyString ~= lastPartyString then
 		buffer:clear()
 		buffer:print(partyString)
-		ST_sockets[1]:send("party:" .. partyString)
+		for id, sock in pairs(ST_sockets) do
+			if sock then sock:send("party:" .. partyString) end
+		end
 		lastPartyString = partyString
 	end
 end
@@ -618,7 +620,7 @@ function ST_received(id)
 				untilKeyReset = 2
 			end
 			if p == "screenshot" then
-				emu:screenshot("/home/jaller94/emu/gba/current.png")
+				emu:screenshot("current.png")
 				sock:send("screenshot")
 			end
 		else

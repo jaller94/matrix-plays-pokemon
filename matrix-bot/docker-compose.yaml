@@ -1,0 +1,9 @@
+version: "3"
+services:
+  bot:
+    image: jaller94/matrix-plays-pokemon:latest
+    volumes:
+      # If you want to change the source code.
+      #- ./src:/etc/data:ro
+      - ./config:/app/config:ro
+      - ./emulator-data:/app/emulator-data:ro

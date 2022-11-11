@@ -25,14 +25,15 @@ Similar to [Twitch Plays Pokémon](https://en.wikipedia.org/wiki/Twitch_Plays_Po
 
 ## Setup
 
-1. Rename `config.sample.json` to `config.json` and edit it with a text editor.
+1. In `matrix-bot/config`, rename `config.sample.json` to `config.json` and edit it with a text editor.
 2. Run `cd matrix-bot && npm install && cd -` to install code dependencies.
+3. For screenshots to work, edit the file path in `matrix-plays-pokemon.lua` to the folder `matrix-bot/emulator-data`.
 
 ## Run it
 
 1. Launch mGBA and load a Pokémon ROM.
 2. Load the lua script.
-3. Launch the Matrix bot: `npm run start`
+3. Launch the Matrix bot: `cd matrix-bot && npm run start && cd -`
 
 ## License
 

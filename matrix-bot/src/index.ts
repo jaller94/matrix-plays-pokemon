@@ -1,4 +1,5 @@
 import fsPromises from 'node:fs/promises';
+import process from 'node:process';
 import {
     AutojoinRoomsMixin,
     LogLevel,
@@ -17,7 +18,7 @@ LogService.trace = LogService.debug;
 
 let creds = null;
 try {
-    creds = require("../config.json");
+    creds = require("config/config.json");
 } catch (e) {
     // ignore
 }
@@ -52,7 +53,7 @@ let targetRoomId: string | undefined;
         if (/^(s(creenshot)?)$/i.test(message.textBody)) {
             emuClient.write('screenshot');
             setTimeout(async() => {
-                const imgBuffer = await fsPromises.readFile('../current.png');
+                const imgBuffer = await fsPromises.readFile('emulator-data/current.png');
                 const img = await client.uploadContent(imgBuffer);
                 // await client.replyNotice(roomId, event, "Pong from DM");
                 await client.sendMessage(roomId, {
@@ -77,7 +78,7 @@ let targetRoomId: string | undefined;
 // Include Nodejs' net module.
 import net from 'node:net';
 // The port number and hostname of the server.
-const port = 8889;
+const port = Number.parseInt(process.env['PORT'] || '8888');
 const host = '127.0.0.1';
 
 // Create a new TCP client.

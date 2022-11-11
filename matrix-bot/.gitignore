@@ -1,0 +1,4 @@
+/config/config.json
+/storage
+/emulator-data/*
+!/emulator-data/.gitkeep

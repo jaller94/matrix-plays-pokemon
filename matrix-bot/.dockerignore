@@ -1,0 +1,4 @@
+/node_modules
+/docker-compose.yaml
+/emulator-data
+/storage
