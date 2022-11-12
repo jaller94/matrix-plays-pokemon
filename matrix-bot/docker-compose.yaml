@@ -2,6 +2,10 @@ version: "3"
 services:
   bot:
     image: jaller94/matrix-plays-pokemon:latest
+    # Use host network so it can reach the lua script at localhost:PORT 
+    network_mode: "host"
+    environment:
+      - PORT=8888
     volumes:
       # The config folder should contain config.json
       - ./config:/app/config:ro
